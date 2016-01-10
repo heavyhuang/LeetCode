@@ -5,18 +5,17 @@ Supposed the linked list is 1 -> 2 -> 3 -> 4 and you are given the third node wi
 ::
  
   /**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
- */
-public class Solution {
+  * Definition for singly-linked list.
+  * public class ListNode {
+  *     int val;
+  *     ListNode next;
+  *     ListNode(int x) { val = x; }
+  * }
+  */
+  public class Solution {
     public void deleteNode(ListNode node) {
-           node.val = node.next.val;
-            node.next = node.next.next;
-
+          node.val = node.next.val;
+          node.next = node.next.next;
     }
-}
+  }
     
