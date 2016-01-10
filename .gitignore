@@ -1,0 +1,12 @@
+*.pyc
+*.tgz
+*.tar.gz
+*.html
+*.so
+# Emacs files
+auto/
+*~
+.desktop.el
+.emacs.desktop.lock
+
+
