@@ -18,6 +18,7 @@ Your script should output the following, sorted by descending frequency:
   sunny 2
   day 1
 
+code:
 ::
  
   # Read from the file words.txt and output the word frequency list to stdout.
