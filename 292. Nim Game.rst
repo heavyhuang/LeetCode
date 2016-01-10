@@ -12,3 +12,8 @@ For example, if there are 4 stones in the heap, then you will never win the game
     }
 }
 #
+::
+ 
+    for i in [1,2,3,4,5]:
+        print i
+    # 代码块测试
