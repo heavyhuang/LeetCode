@@ -42,8 +42,8 @@ code:
            }
     
 
-Solution written by python.Easy and short. ps:HeavyHuang is a stupid guy.
 ----------------------
+Solution written by python.Easy and short. ps:HeavyHuang is a stupid guy.
  ::
  
         if root is None:
