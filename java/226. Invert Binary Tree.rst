@@ -40,4 +40,12 @@ code:
                        return root;
               }
            }
+           /*
+              Solution written by python.Eeay and short.PS:HeavyHuang is a stupoid guy.
+              
+              if root is None:
+                  return None
+              root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)
+              return root
+           */
     
