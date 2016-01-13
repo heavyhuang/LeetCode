@@ -1,0 +1,33 @@
+Given a roman numeral, convert it to an integer.
+
+Input is guaranteed to be within the range from 1 to 3999.
+这个没读懂题目，roman numeral的规则比想想中复杂
+
+code　.. _别人的答案：https://cheonhyangzhang.wordpress.com/2015/09/09/13-leetcode-java-roman-to-integer-easy/:
+::
+ 
+  HashMap<Character, Integer> table = new HashMap<Character, Integer>();
+        public int romanToInt(String s) {
+        initMap(); 
+        return rtoi(s);
+    }
+    private void initMap(){
+        table.put('I',1);
+        table.put('V',5);
+        table.put('X',10);
+        table.put('L',50);
+        table.put('C',100);
+        table.put('D',500);
+        table.put('M',1000);
+    }
+    private int rtoi(String s){
+        int result = 0;
+        for (int i = 0; i < s.length(); i ++){ 
+            if (i > 0 && table.get(s.charAt(i - 1)) < table.get(s.charAt(i))){
+                result = result - 2*table.get(s.charAt(i - 1));
+            }
+                result = result + table.get(s.charAt(i));
+        }
+        return result;
+    }
+    
