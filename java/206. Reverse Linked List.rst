@@ -1,0 +1,42 @@
+Reverse a singly linked list.
+头插法
+
+code
+::
+ 
+  public static class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) { val = x; }
+    }
+
+
+    public static void main(String args[]) {
+        Solution solution = new Solution();
+        ListNode listNode = new ListNode(1);
+        listNode.next = new ListNode(2);
+        listNode.next.next = new ListNode(3);
+        listNode.next.next.next = new ListNode(4);
+        ListNode newNode = solution.reverseList(listNode);
+        System.out.println(newNode.val+""
+                +newNode.next.val+""
+                +newNode.next.next.val+""
+                +newNode.next.next.next.val+""
+                +newNode.next.next.next.next+"");
+    }
+    public static class Solution {
+        public ListNode reverseList(ListNode head) {
+            if (head == null || head.next == null){
+                return head;
+            }
+            ListNode node2;
+            ListNode root = new ListNode(0);
+            while (head != null){
+                node2 = head.next;
+                head.next = root.next;
+                root.next = head;
+                head = node2;
+            }
+            return root.next;
+        }
+    }
