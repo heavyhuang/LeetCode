@@ -1,0 +1,39 @@
+Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
+
+code:
+::
+ 
+  public static class Solution {
+        public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+            if (l1 == null){return l2;}
+            if (l2 == null){return l1;}
+            ListNode listNode = new ListNode(0);
+            if (l1.val > l2.val){
+                listNode.val = l2.val;
+                l2 = l2.next;
+            }else {
+                listNode.val = l1.val;
+                l1 = l1.next;
+            }
+            listNode.next = null;
+            ListNode tempList = listNode;
+
+            while (l1!= null && l2 != null){
+                if (l1.val > l2.val){
+                    tempList.next = l2;
+                    tempList = tempList.next;
+                    l2 = l2.next;
+                }else {
+                    tempList.next = l1;
+                    tempList = tempList.next;
+                    l1 = l1.next;
+                }
+            }
+            if (l1 == null){
+                tempList.next = l2;
+            }else {
+                tempList.next = l1;
+            }
+            return listNode;
+        }
+    }
