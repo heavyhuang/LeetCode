@@ -1,0 +1,27 @@
+ Given an integer, write a function to determine if it is a power of three.
+
+Follow up:
+Could you do it without using any loop / recursion? 
+
+code1:
+:: 
+      public static class Solution {
+        public boolean isPowerOfThree(int n) {
+            if (n == 1){return true;}
+            if (n <= 0){return false;}
+            Double temp = Math.log(n)/Math.log(3);
+            return Math.abs(temp - Math.round(temp)) < 10e-10;
+
+        }
+    }
+
+code2(转换成三进制，正则匹配，但效率不高):
+::    
+    public static class Solution {
+        public boolean isPowerOfThree(int n) {
+            if (n == 1){return true;}
+            if (n <= 0){return false;}
+            return Integer.toString(n,3).matches("10*");
+
+        }
+    }
