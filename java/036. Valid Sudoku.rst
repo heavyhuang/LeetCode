@@ -1,0 +1,52 @@
+Determine if a Sudoku is valid, according to: Sudoku Puzzles - The Rules.
+
+The Sudoku board could be partially filled, where empty cells are filled with the character '.'.Determine whether an integer is a palindrome. Do this without extra space.
+
+code
+::
+ 
+      public static class Solution {
+        public boolean isValidSudoku(char[][] board) {
+            if (board == null) {
+                return true;
+            }
+            for (int i = 0; i < 9; i++) {
+                HashSet<Character> check1 = new HashSet<Character>();
+                HashSet<Character> check2 = new HashSet<Character>();
+                for (int j = 0; j < 9; j++) {
+                    if (!check1.contains(board[i][j])
+                            && !check2.contains(board[j][i])
+                            ) {
+                        if (board[i][j] != '.') {
+                            check1.add(board[i][j]);
+                        }
+                        if (board[j][i] != '.') {
+                            check2.add(board[j][i]);
+                        }
+                    } else {
+                        return false;
+                    }
+                }
+                check1.clear();
+                check2.clear();
+            }
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    HashSet<Character> check3 = new HashSet<Character>();
+                    for (int a = 0; a < 3; a++) {
+                        for (int b = 0; b < 3; b++) {
+                            if (!check3.contains(board[i * 3 + a][j * 3 + b])) {
+                                if (board[i * 3 + a][j * 3 + b] != '.') {
+                                    check3.add(board[i * 3 + a][j * 3 + b]);
+                                }
+                            } else {
+                                return false;
+                            }
+                        }
+                    }
+                    check3.clear();
+                }
+            }
+            return true;
+        }
+    }

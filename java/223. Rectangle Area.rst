@@ -1,0 +1,18 @@
+Find the total area covered by two rectilinear rectangles in a 2D plane.
+
+Each rectangle is defined by its bottom left corner and top right corner as shown in the figure.
+
+code:
+::
+ 
+      public static class Solution {
+        public int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {
+            if (E>C || A>G || B>H || F>D){return (G-E)*(H-F) + (A-C)*(B-D);}
+            if (A==C&&B==D){return (G-E)*(H-F);}
+            if (E==G&&F==H){return (A-C)*(B-D);}
+            int m=0,n=0;
+            m = E>=A?(G>=C?C-E:G-E):(G>=C?C-A:G-A);
+            n = F>=B?(H>=D?D-F:H-F):(H>=D?D-B:H-B);
+            return (G-E)*(H-F) + (A-C)*(B-D) - m*n;
+        }
+    }
